@@ -1,0 +1,5 @@
+- Enterprise software development has always been one of the most exiting field of software development
+- Enterprise world has been moving toward adopting cloud technologies (microservices, kubernetes, containers)
+- Java and the frameworks and stacks built with it are often viewed as monolithic, and slow to start, consuming a lot of memory or disk space
+- Quarkus, GraalVM, Eclipse Vert.x, Spring Boot, and OpneJDK allow Java developer to use their skills in Java for cloud technologies.
+- 
