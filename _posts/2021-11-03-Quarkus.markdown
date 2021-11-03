@@ -1,0 +1,44 @@
+---
+layout: post
+title:  "Learning Quarkus"
+date:   2021-11-03 14:55:07 -0400
+categories: Java Quarkus
+---
+I am working on a windows machine home edition. I have installed docker for windows and following are the steps for development.
+
+1. Get [openJDK image][openjdk-image]
+```
+docker pull registry.access.redhat.com/ubi8/openjdk-8:1.10-1.1634737830
+```
+
+2. Create a workspace folder on host OS:
+```
+mkdir $HOME/workspace/java/shared
+```
+
+3. Create a volume
+```
+docker volume create shared
+```
+
+4. Run docker image
+```
+ docker run --rm -it --name jdev --mount source=shared,target=/app -u root registry.access.redhat.com/ubi8/openjdk-8:1.10-1.1634737830 /bin/bash
+ [TODO] then create folder in /app and chown -R 
+ chown -R jboss:jboss /app/quarkus-app
+ 
+ docker run --rm -it --name jdev --mount source=shared,target=/app registry.access.redhat.com/ubi8/openjdk-8:1.10-1.1634737830 /bin/bash
+```
+
+
+```
+mvn io.quarkus:quarkus-maven-plugin:2.1.4.Final:create \
+-DprojectGroupId=com.redhat.cloudnative \
+-DprojectArtifactId=inventory-quarkus \
+-DprojectVersion=1.0.0-SNAPSHOT \
+-DclassName="com.redhat.cloudnative.InventoryResource" \
+-Dextensions="quarkus-resteasy,quarkus-resteasy-jsonb,quarkus-hibernate-orm-panache,quarkus-jdbc-h2"
+
+```
+
+[openjdk-image]: https://catalog.redhat.com/software/containers/redhat-openjdk-18/openjdk18-openshift/58ada5701fbe981673cd6b10?container-tabs=gti&gti-tabs=unauthenticated
