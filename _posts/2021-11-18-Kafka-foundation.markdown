@@ -53,3 +53,17 @@ services:
       - "zookeeper"
     
 {% endhighlight %}
+
+Install podman and podman compose
+
+{% highlight bash %}
+sudo dnf install podman
+curl -o /usr/local/bin/podman-compose https://raw.githubusercontent.com/containers/podman-compose/devel/podman_compose.py
+chmod +x /usr/local/bin/podman-compose
+{% endhighlight %}
+
+Save the above yaml file as `kafka-single-node.yml` and run `podman-compose -f kafka-single-node.yml up -d` command in that folder, which will start a container for zookeeper and and one caintainer for kafka-broker.
+
+### Zookeeper [TODO]
+
+### Kafka Broker [TODO]
