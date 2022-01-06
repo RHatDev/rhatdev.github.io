@@ -5,15 +5,17 @@ date:   2022-01-06
 categories: podman development
 ---
 
+
 {% highlight bash %}
 
-mkdir $PWD/src
-podman unshare chown -R 1001:root $PWD/src
+$ mkdir $PWD/src
+
+$ podman unshare chown -R 1001:root $PWD/src
 
 podman run --rm -v "$(pwd)"/src:/opt -w /opt \
    laravelsail/php81-composer:latest bash -c \
    "laravel new example-app && cd example-app && \
-   php ./artisan sail:install --with=mysql,redis,meilisearch,mailhog,selenium "
+   php ./artisan sail:install --with=mysql,redis,meilisearch,mailhog,selenium"
 
 {% endhighlight %}
 
