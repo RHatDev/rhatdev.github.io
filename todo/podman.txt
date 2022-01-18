@@ -63,3 +63,5 @@ Podman documentation
 podman build -t ruby-25 -f containerfile
 podman run -p 4000:4000 --name jekyll -d ruby-25
 
+
+https://jekyllrb.com/docs/ruby-101/
