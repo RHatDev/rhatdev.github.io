@@ -1,0 +1,12 @@
+Running Jekyll on podman
+========================
+Following is a documentation on how to run jekyll on podman. I came across couple of issues doing this exercise which I will document here.
+
+First thing is what is jekyll
+
+Check firewall if enabled and then add port
+sudo systemctl stop firewalld
+sudo systemctl start firewalld
+
+# firewall-cmd --add-port=8080/tcp --permanent 
+# firewall-cmd --reload
