@@ -10,3 +10,56 @@ sudo systemctl start firewalld
 
 # firewall-cmd --add-port=8080/tcp --permanent 
 # firewall-cmd --reload
+
+containerfile
+```
+FROM registry.access.redhat.com/ubi8
+
+EXPOSE 4000
+ENV RUBY_MAJOR_VERSION=2 \
+    RUBY_MINOR_VERSION=5
+
+ENV RUBY_VERSION="${RUBY_MAJOR_VERSION}.${RUBY_MINOR_VERSION}" \
+    RUBY_SCL_NAME_VERSION="${RUBY_MAJOR_VERSION}${RUBY_MINOR_VERSION}"
+
+ENV RUBY_SCL="ruby-${RUBY_SCL_NAME_VERSION}"
+
+ENV JEKYLL_PATH /opt/jekyll
+ENV SHARED_GEMS /usr/share/gems
+RUN yum -y module enable ruby:$RUBY_VERSION && \
+    INSTALL_PKGS=" \
+    libffi-devel \
+    ruby \
+    ruby-devel \
+    rubygem-rake \
+    rubygem-bundler \
+    redhat-rpm-config \
+    gcc \
+    gcc-c++ \
+    make \
+    " && \
+    yum install -y --setopt=tsflags=nodocs ${INSTALL_PKGS} && \
+    yum -y clean all --enablerepo='*' && \
+    rpm -V ${INSTALL_PKGS} && \
+    gem install bundler && \
+    mkdir $JEKYLL_PATH
+
+
+COPY Gemfile $JEKYLL_PATH
+
+RUN  cd ${JEKYLL_PATH} && bundle install && \
+     chown -R 1001:0 ${JEKYLL_PATH} && \
+     chmod -R ug+rwx ${JEKYLL_PATH}
+
+WORKDIR $JEKYLL_PATH
+USER 1001
+
+CMD bundle exec jekyll serve --host=0.0.0.0
+
+```
+
+Podman documentation
+
+podman build -t ruby-25 -f containerfile
+podman run -p 4000:4000 --name jekyll -d ruby-25
+
