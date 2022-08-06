@@ -1,0 +1,10 @@
+---
+layout: post
+title:  "MongoDB replicaset on multiple cluster"
+date:   2022-08-06
+categories: Openshift MongoDB
+
+---
+
+In this article, I am going to show you how to deploy MongoDB in replicaset on 3 openshift cluster. 
+I will be building this PoC with vanilla Openshift resources, like deployments, services, and routes.
