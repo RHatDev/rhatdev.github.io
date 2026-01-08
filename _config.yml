@@ -4,7 +4,7 @@ title: "RHatDev"
 description: "RHatDev Blogs by mamin"
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/logo.png'
-baseurl: 
+baseurl: ''
 #baseurl: /mediumish-theme-jekyll
 #google_analytics: 'UA-46278016-1'
 disqus: 'demowebsite'
@@ -18,10 +18,10 @@ authors:
     name: mamin
     display_name: Mamin
     gravatar: e56154546cf4be74e393c62d1ae9f9d4
-    email: wowthemesnet@gmail.com
-    web: https://www.wowthemes.net
-    twitter: https://twitter.com/wowthemesnet
-    description: "Author of Mediumish, a Bootstrap Medium styled template available for WordPress, HTML, Ghost and Jekyll. You are currently previewing Jekyll template demo."
+    email: mamin@redhat.com
+    web: https://rhatdev.github.io/
+    twitter: https://twitter.com/maminRHT
+    description: "Mohammad Amin, Senior Consultant at RedHat"
 
 # Plugins
 plugins:
