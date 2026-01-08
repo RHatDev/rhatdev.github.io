@@ -23,6 +23,15 @@ authors:
     twitter: https://twitter.com/maminRHT
     description: "Mohammad Amin, Senior Consultant at RedHat"
 
+  mamin:
+    name: mamin
+    display_name: Mamin
+    gravatar: e56154546cf4be74e393c62d1ae9f9d4
+    email: mamin@redhat.com
+    web: https://rhatdev.github.io/
+    twitter: https://twitter.com/maminRHT
+    description: "Mohammad Amin, Senior Consultant at RedHat"
+
 # Plugins
 plugins:
   - jekyll-paginate
