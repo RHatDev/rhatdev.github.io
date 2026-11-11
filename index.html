@@ -3,12 +3,19 @@ layout: default
 title: Home
 ---
 
-<h2>Recent Posts</h2>
-<ul>
+<style>
+    /* Scoped styles for the homepage feed */
+    .post-list { list-style: none; padding: 0; margin: 0; }
+    .post-item { margin-bottom: 2rem; }
+    .post-title { font-size: 1.25rem; font-weight: 600; display: block; margin-bottom: 0.25rem; }
+    .post-meta { color: var(--meta-color); font-size: 0.875rem; display: block; }
+</style>
+
+<ul class="post-list">
   {% for post in site.posts %}
-    <li>
-      <span class="date">{{ post.date | date: "%B %d, %Y" }}</span> &mdash;
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    <li class="post-item">
+      <a class="post-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <time class="post-meta">{{ post.date | date: "%B %d, %Y" }}</time>
     </li>
   {% endfor %}
 </ul>
