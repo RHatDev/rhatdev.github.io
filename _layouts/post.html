@@ -1,0 +1,36 @@
+---
+layout: default
+---
+
+<article class="mx-auto" style="max-width: 820px;">
+    <!-- Post Header -->
+    <header class="mb-4 pb-3 border-bottom">
+        <h1 class="display-5 fw-bold mb-2">{{ page.title }}</h1>
+        <div class="text-muted small">
+            <span>Published {{ page.date | date: "%B %d, %Y" }}</span>
+            {% if page.read_time %}
+            <span class="mx-2">&bull;</span>
+            <span>{{ page.read_time }} read</span>
+            {% endif %}
+        </div>
+    </header>
+
+    <!-- Optional Cover Thumbnail -->
+    {% if page.thumbnail %}
+    <div class="mb-4">
+        <img src="{{ page.thumbnail }}" alt="{{ page.title }}" class="img-fluid rounded w-100" style="max-height: 420px; object-fit: cover;">
+    </div>
+    {% endif %}
+
+    <!-- Markdown Article Content -->
+    <div class="post-body fs-5 lh-lg text-body-secondary text-dark">
+        {{ content }}
+    </div>
+
+    <!-- Back to Feed Navigation -->
+    <div class="pt-5 mt-5 border-top">
+        <a href="{{ '/' | relative_url }}" class="btn btn-outline-primary">
+            &larr; Back to all posts
+        </a>
+    </div>
+</article>
