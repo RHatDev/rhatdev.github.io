@@ -3,10 +3,10 @@ layout: default
 title: Home
 ---
 
-<!-- Newsletter Subscription Hero -->
+<!-- Top Hero & Newsletter Box -->
 <section class="text-center py-4 mb-5 border-bottom">
-    <h1 class="fw-bold mb-2">RHatDev Blogs Made For Consultants</h1>
-    <p class="text-secondary mb-4">Welcome to my blog. Subscribe and get my latest blog post in your inbox.</p>
+    <h1 class="fw-bold mb-2">DevBlog - Cloud &amp; Platform Architecture</h1>
+    <p class="text-secondary mb-4">Field notes, production playbooks, and architectural patterns.</p>
     
     <form class="row justify-content-center g-2" onsubmit="event.preventDefault();">
         <div class="col-12 col-sm-auto">
@@ -27,20 +27,30 @@ title: Home
         </div>
         
         <div class="col-12 col-sm-8 col-md-9">
+            <!-- Category and Tag Pills -->
+            <div class="d-flex flex-wrap gap-1 mb-2">
+                {% if post.category %}
+                <span class="badge bg-primary-subtle text-primary border border-primary-subtle">{{ post.category }}</span>
+                {% endif %}
+                {% for tag in post.tags %}
+                <span class="badge bg-light text-secondary border">{{ tag }}</span>
+                {% endfor %}
+            </div>
+
             <h3 class="h4 fw-bold mb-1">
                 <a href="{{ post.url | relative_url }}" class="text-dark text-decoration-none">{{ post.title }}</a>
             </h3>
             
             <div class="text-muted small mb-2">
-                Published {{ post.date | date: "%b %d, %Y" }} &bull; {{ post.read_time | default: '4 min' }} read &bull; <a href="{{ post.url | relative_url }}" class="text-muted text-decoration-none">Comments</a>
+                Published {{ post.date | date: "%b %d, %Y" }} &bull; {{ post.read_time | default: '4 min' }} read
             </div>
 
             <p class="text-secondary mb-2">
-                {{ post.excerpt | strip_html | truncatewords: 28 }}
+                {{ post.excerpt | strip_html | truncatewords: 24 }}
             </p>
 
             <a href="{{ post.url | relative_url }}" class="fw-semibold text-primary text-decoration-none">
-                Read more &rarr;
+                Read guide &rarr;
             </a>
         </div>
     </article>
