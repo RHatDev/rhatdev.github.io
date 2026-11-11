@@ -3,47 +3,53 @@ layout: default
 title: Home
 ---
 
-<!-- Hero Section & Newsletter -->
-<section class="text-center mx-auto mb-5 pb-3" style="max-width: 600px;">
-    <h1 class="fw-bold fs-2 mb-2">DevBlog - A Blog Template Made For Developers</h1>
-    <p class="text-secondary small mb-4">Welcome to my blog. Subscribe and get my latest blog post in your inbox.</p>
+<!-- Top Hero & Newsletter Box -->
+<section class="text-center py-4 mb-5 border-bottom">
+    <h1 class="fw-bold mb-2">DevBlog - A Blog Skeleton for Developers</h1>
+    <p class="text-secondary mb-4">Welcome to my personal corner of the web. Subscribe for updates right to your inbox.</p>
     
-    <form class="row g-2 justify-content-center" onsubmit="event.preventDefault();">
-        <div class="col-8">
-            <input type="email" class="form-control" placeholder="Enter email" required>
+    <form class="row justify-content-center g-2" onsubmit="event.preventDefault();">
+        <div class="col-12 col-sm-auto">
+            <input type="email" class="form-control form-control-lg" placeholder="Enter your email" style="min-width: 280px;">
         </div>
-        <div class="col-auto">
-            <button type="submit" class="btn btn-primary fw-semibold px-4" style="background-color: var(--theme-blue); border-color: var(--theme-blue);">
-                Subscribe
-            </button>
+        <div class="col-12 col-sm-auto">
+            <button type="submit" class="btn btn-primary btn-lg px-4">Subscribe</button>
         </div>
     </form>
 </section>
 
-<!-- Blog Posts Feed -->
-<section class="mx-auto" style="max-width: 820px;">
-  {% for post in site.posts %}
-    <article class="row g-4 mb-4 pb-4 border-bottom align-items-center">
+<!-- Blog Post Feed -->
+<section class="container px-0" style="max-width: 850px;">
+    {% for post in site.posts %}
+    <article class="row g-4 align-items-center mb-5 pb-4 border-bottom">
         <!-- Thumbnail -->
         <div class="col-12 col-sm-4 col-md-3">
-            <a href="{{ post.url | relative_url }}">
-                <img src="{{ post.image | default: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=400&q=80' }}" 
-                     alt="{{ post.title }}" 
-                     class="img-fluid rounded shadow-sm w-100" 
-                     style="aspect-ratio: 4/3; object-fit: cover;">
-            </a>
+            <img src="{{ post.thumbnail | default: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&auto=format&fit=crop&q=80' }}" 
+                 alt="{{ post.title }}" 
+                 class="img-fluid rounded w-100" 
+                 style="height: 120px; object-fit: cover;">
         </div>
-
-        <!-- Post Content -->
+        
+        <!-- Post Summary -->
         <div class="col-12 col-sm-8 col-md-9">
-            <h2 class="fs-5 fw-bold mb-1">
+            <h3 class="h4 fw-bold mb-1">
                 <a href="{{ post.url | relative_url }}" class="text-dark text-decoration-none">{{ post.title }}</a>
-            </h2>
+            </h3>
             
-            <div class="text-secondary small mb-2">
-                <span>Published {{ post.date | date: "%b %d, %Y" }}</span> &bull; 
-                <span>{{ post.content | number_of_words | divided_by: 180 | at_least: 1 }} min read</span>
+            <div class="text-muted small mb-2">
+                Published {{ post.date | date: "%b %d, %Y" }} &bull; 
+                {{ post.read_time | default: '4 min' }} read &bull; 
+                <a href="{{ post.url | relative_url }}#comments" class="text-muted text-decoration-none">Leave a comment</a>
             </div>
 
-            <p class="text-muted small mb-2">
-                {{ post.excerpt | strip_html | truncatewords: 2
+            <p class="text-secondary mb-2">
+                {{ post.excerpt | strip_html | truncatewords: 28 }}
+            </p>
+
+            <a href="{{ post.url | relative_url }}" class="fw-semibold text-primary text-decoration-none">
+                Read more &rarr;
+            </a>
+        </div>
+    </article>
+    {% endfor %}
+</section>
