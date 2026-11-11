@@ -7,9 +7,9 @@ title: About Me
 
 # About Me
 
-Hi, I'm a **Senior Consultant** specializing in enterprise container platforms, end-to-end IT automation, and modern hybrid cloud infrastructure. 
+Hi, I'm a **Cloud Architect and Red Hat Consultant** specializing in enterprise container platforms, end-to-end IT automation, and modern hybrid cloud infrastructure. 
 
-I have helped organizations bridge the gap between legacy infrastructure and cloud-native architectures—architecting, deploying, and hardening resilient platforms powered by **OpenShift** and the **Red Hat Ansible Automation Platform (AAP)**.
+Since joining Red Hat in 2019, I have helped organizations bridge the gap between legacy infrastructure and cloud-native architectures—architecting, deploying, and hardening resilient platforms powered by **OpenShift** and the **Red Hat Ansible Automation Platform (AAP)**.
 
 ---
 
@@ -54,5 +54,13 @@ I created this space as a technical field guide for practitioners. Here, you'll 
 3. Hybrid infrastructure automation, migration playbooks, and modern cloud patterns.
 
 ---
+
+### Get In Touch
+
+Whether you're interested in platform architecture, scaling automation across your enterprise, or OpenShift adoption, feel free to reach out:
+
+* **GitHub:** [@RHatDev](https://github.com/RHatDev)
+* **LinkedIn:** [linkedin.com/in/yourprofile](https://www.linkedin.com)
+* **Email:** [you@example.com](mailto:you@example.com)
 
 </article>
